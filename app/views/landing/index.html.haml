@@ -1,0 +1,26 @@
+
+= form_tag('/', method: "get" ) do
+  = text_field_tag :name , @url
+  = submit_tag 'apply' , class: 'btn btn-default' 
+
+%h2
+  = link_to @url , url_for( @url )
+
+%h3
+  Colors
+- @cards.take(10).each do |card|
+  .panel.panel-default.card
+    .panel-heading
+      = card[0]
+      .pull-right
+        .badge
+          = card[1]
+    .panel-body{ style: "background-color: #{card[0]}" }
+      
+
+.clearfix
+%h3
+  Images
+  
+- @imgs.each do |im|
+  = image_tag im
